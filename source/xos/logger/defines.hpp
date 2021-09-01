@@ -113,6 +113,16 @@ namespace logger {
 /// ...
 /// LOGGING_LEVELS
 
+/// LOGGER_LOG_PLAIN
+/// ...
+#define LOGGER_LOG_PLAIN(logger_, level_, message_) { \
+LOGGER_INTERFACE* logger = logger_; \
+if ((logger)?(logger->is_enabled_for(level_)):(false)) {\
+   LOGGER_MESSAGE message; \
+   logger->log(level_, message << message_); } }
+/// ...
+/// LOGGER_LOG_PLAIN
+
 /// LOGGER_FUNCTION
 /// ...
 #if !defined(__LOGGER_FUNC__)
@@ -128,6 +138,16 @@ namespace logger {
 #endif /// !defined(LOGGER_LOCATION)
 /// ...
 /// LOGGER_FUNCTION
+
+/// LOGGER_LOG_FUNCTION
+/// ...
+#define LOGGER_LOG_FUNCTION(logger_, level_, message_) { \
+LOGGER_INTERFACE* logger = logger_; \
+if ((logger)?(logger->is_enabled_for(level_)):(false)) {\
+   LOGGER_MESSAGE message; \
+   logger->log(level_, LOGGER_FUNCTION, message << message_); } }
+/// ...
+/// LOGGER_LOG_FUNCTION
 
 /// LOGGER_LOCATION
 /// ...
@@ -312,5 +332,14 @@ if ((logger)) {\
     if (__is_debug__) { LOGGER_IS_LOGGED_DEBUG(__message__); } else { LOGGER_IS_LOGGED_TRACE(__message__); }
 /// ...
 /// LOGGER_IS_LOGGED_ FATAL .. TRACE
+
+/// LOGGER_LOG_MESSAGE_ FATAL .. TRACE
+/// 
+#define LOGGER_LOG_MESSAGE_FATAL(__message__) LOGGER_LOG_PLAIN(DEFAULT_LOGGER, LOGGING_LEVEL_FATAL, __message__)
+#define LOGGER_LOG_MESSAGE_ERROR(__message__) LOGGER_LOG_PLAIN(DEFAULT_LOGGER, LOGGING_LEVEL_ERROR, __message__)
+#define LOGGER_LOG_MESSAGE_WARN(__message__) LOGGER_LOG_PLAIN(DEFAULT_LOGGER, LOGGING_LEVEL_WARN, __message__)
+#define LOGGER_LOG_MESSAGE_INFO(__message__) LOGGER_LOG_PLAIN(DEFAULT_LOGGER, LOGGING_LEVEL_INFO, __message__)
+#define LOGGER_LOG_MESSAGE_DEBUG(__message__) LOGGER_LOG_PLAIN(DEFAULT_LOGGER, LOGGING_LEVEL_DEBUG, __message__)
+#define LOGGER_LOG_MESSAGE_TRACE(__message__) LOGGER_LOG_PLAIN(DEFAULT_LOGGER, LOGGING_LEVEL_TRACE, __message__)
 
 #endif /// ndef XOS_LOGGER_DEFINES_HPP
