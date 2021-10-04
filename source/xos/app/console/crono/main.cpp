@@ -19,10 +19,10 @@
 ///   Date: 8/2/2021
 ///////////////////////////////////////////////////////////////////////
 #include "xos/app/console/crono/main.hpp"
-
-#if !defined(XOS_APP_CONSOLE_CRONO_MAIN_INSTANCE)
-///#define XOS_APP_CONSOLE_CRONO_MAIN_INSTANCE
-#endif /// !defined(XOS_APP_CONSOLE_CRONO_MAIN_INSTANCE)
+#if defined(XOS_CONSOLE_MAIN_MAIN)
+#include "xos/console/main_main.cpp"
+#define XOS_APP_CONSOLE_CRONO_MAIN_INSTANCE
+#endif /// defined(XOS_CONSOLE_MAIN_MAIN)
 
 namespace xos {
 namespace app {
