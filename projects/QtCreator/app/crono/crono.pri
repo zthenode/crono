@@ -79,4 +79,6 @@ $${crono_FRAMEWORKS} \
 crono_exe_LIBS += \
 $${crono_LIBS} \
 
-
+########################################################################
+# NO Qt
+QT -= gui core
