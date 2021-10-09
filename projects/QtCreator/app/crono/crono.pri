@@ -57,16 +57,12 @@ XOS_APP_CONSOLE_CRONO_MAIN_INSTANCE \
 crono_exe_HEADERS += \
 $${CRONO_SRC}/xos/app/console/crono/main_opt.hpp \
 $${CRONO_SRC}/xos/app/console/crono/main.hpp \
-\
-$${NADIR_SRC}/xos/console/main_main.hpp \
 
 # crono_exe SOURCES
 #
 crono_exe_SOURCES += \
 $${CRONO_SRC}/xos/app/console/crono/main_opt.cpp \
 $${CRONO_SRC}/xos/app/console/crono/main.cpp \
-\
-$${NADIR_SRC}/xos/console/main_main.cpp \
 
 ########################################################################
 # crono_exe FRAMEWORKS
