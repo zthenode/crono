@@ -21,7 +21,7 @@
 #include "xos/app/console/crono/main_opt.hpp"
 
 #if !defined(XOS_APP_CONSOLE_CRONO_MAIN_OPT_INSTANCE)
-///#define XOS_APP_CONSOLE_CRONO_MAIN_OPT_INSTANCE
+//#define XOS_APP_CONSOLE_CRONO_MAIN_OPT_INSTANCE
 #endif /// !defined(XOS_APP_CONSOLE_CRONO_MAIN_OPT_INSTANCE)
 
 namespace xos {
